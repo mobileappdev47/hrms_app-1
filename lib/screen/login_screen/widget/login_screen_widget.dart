@@ -52,7 +52,7 @@ Widget commonTextFormField(
 
 Widget commonSocialButton({String? image}) {
   return Container(
-    padding: EdgeInsets,
+   
     decoration:  BoxDecoration(
       color: Colors.white,
 
