@@ -3,7 +3,10 @@ import 'package:hrms_app/utils/app_style.dart';
 import 'package:hrms_app/utils/color_res.dart';
 
 Widget commonTextFormField(
-    {InputDecoration? inputDecoration, Icon? iconData, bool? isObscure,TextEditingController? controller}) {
+    {InputDecoration? inputDecoration,
+    Icon? iconData,
+    bool? isObscure,
+    TextEditingController? controller}) {
   return Stack(
     children: [
       Container(
@@ -21,7 +24,6 @@ Widget commonTextFormField(
                   offset: const Offset(0, 0))
             ]),
         child: TextFormField(
-
           controller: controller,
           obscureText: isObscure ?? false,
           style: AppTextStyle(
@@ -45,5 +47,22 @@ Widget commonTextFormField(
         child: Center(child: iconData),
       ),
     ],
+  );
+}
+
+Widget commonSocialButton({String? image}) {
+  return Container(
+    padding: EdgeInsets,
+    decoration:  BoxDecoration(
+      color: Colors.white,
+
+      borderRadius: BorderRadius.circular(15),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.3)
+        )
+      ]
+    ),
+    child: Image.asset(image!),
   );
 }

@@ -133,8 +133,25 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        
-                      )
+                        width: Get.width*0.28,
+                        height: 1,
+                        color: ColorRes.greyText,
+                      ),
+                      const SizedBox(width: 5,),
+                      Text("Or Sign in with",style: AppTextStyle(textColor: ColorRes.greyText),),
+                      const SizedBox(width: 5,),
+                      Container(
+                        width: Get.width*0.28,
+                        height: 1,
+                        color: ColorRes.greyText,
+                      ),
+
+
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  Row(
+                    children: [
 
                     ],
                   )
