@@ -13,7 +13,7 @@ ios/.gitignore
 
 ios/Flutter
 test/
-android/app/
+
 android/settings.gradle
 
 # Directory created by dartdoc
