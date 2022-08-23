@@ -43,7 +43,7 @@ class ImageRes {
   static String homeScreenTop = "${imagePath}home_screen_top.png";
   static String eventImage = "${imagePath}event_image.png";
 
-  // static String appointment = "${iconPath}appointment.png";
+   static String appointmentHome = "${iconPath}appointment.png";
   static String meeting = "${iconPath}meeting.png";
 
 

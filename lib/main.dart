@@ -7,11 +7,11 @@ import 'package:hrms_app/screen/home_screen/home_screen.dart';
 import 'package:hrms_app/screen/home_screen/home_screen_controller.dart';
 import 'package:hrms_app/screen/login_screen/login_screen.dart';
 import 'package:hrms_app/screen/login_screen/login_screen_controller.dart';
-import 'package:hrms_app/screen/profile/profile.dart';
-import 'package:hrms_app/screen/profile/profile_controller.dart';
+import 'package:hrms_app/screen/profile_screen/profile_screen.dart';
 import 'package:hrms_app/screen/welcome_screen/welcome_screen.dart';
 import 'package:hrms_app/screen/welcome_screen/welcome_screen_controller.dart';
 import 'package:hrms_app/utils/app_res.dart';
+import 'screen/profile_screen/profile_screen_controller.dart';
 
 void main() {
   runApp(const MyApp());

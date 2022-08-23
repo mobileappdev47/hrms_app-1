@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       homeScreenTopContainer(
-                          icon: ImageRes.appointment,
+                          icon: ImageRes.appointmentHome,
                           text1: "2",
                           text2: "Appointments"),
                       homeScreenTopContainer(
