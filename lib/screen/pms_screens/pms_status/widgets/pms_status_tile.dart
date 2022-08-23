@@ -110,43 +110,63 @@ Container pmsStatusTile() {
 
 
 class OpenPainter extends CustomPainter {
-  final learned;
-  final notLearned;
+  final overdue;
+  // final inProgress;
+  final completed;
+  final inProgress;
+
   final range;
-  final totalQuestions;
+  final total;
   double pi = math.pi;
 
-  OpenPainter({this.learned, this.totalQuestions, this.notLearned, this.range});
+  OpenPainter({this.overdue, this.completed, this.total, this.inProgress, this.range});
   @override
   void paint(Canvas canvas, Size size) {
-    double strokeWidth = 7;
-    Rect myRect = const Offset(-50.0, -50.0) & const Size(100.0, 100.0);
+    double strokeWidth = 5;
+    Rect myRect = const Offset(-70.0, -30.0) & const Size(65.0, 65.0);
 
     var paint1 = Paint()
-      ..color = Colors.red
+      ..color = ColorRes.orange
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
     var paint2 = Paint()
-      ..color = Colors.green
+      ..color = ColorRes.green
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
     var paint3 = Paint()
-      ..color = Colors.yellow
+      ..color = ColorRes.lightYellow
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+    var paint4 = Paint()
+      ..color = ColorRes.redColor
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+    var paint5 = Paint()
+      ..color = ColorRes.grey
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
+
     double firstLineRadianStart = 0;
-    double _unAnswered = (totalQuestions - notLearned - learned) * range / totalQuestions;
-    double firstLineRadianEnd = (360 * _unAnswered) * math.pi / 180;
+    double _unAnswered = (total - inProgress - completed - overdue) * range / total;
+    double firstLineRadianEnd = (360 * _unAnswered) * math.pi / 180 ;
     canvas.drawArc(
         myRect, firstLineRadianStart, firstLineRadianEnd, false, paint1);
 
-    double _learned = (learned) * range / totalQuestions;
-    double secondLineRadianEnd = getRadians(_learned);
+    // canvas.drawArc(
+    //     myRect, firstLineRadianEnd, (360 * 5) * math.pi / 180 - 5, false, paint1);
+
+    double _completed = (completed) * range / total;
+    double secondLineRadianEnd = getRadians(_completed);
     canvas.drawArc(myRect, firstLineRadianEnd, secondLineRadianEnd, false, paint2);
-    double _notLearned = (notLearned) * range / totalQuestions;
-    double thirdLineRadianEnd = getRadians(_notLearned);
+
+    double _inProgress = (inProgress) * range / total;
+    double thirdLineRadianEnd = getRadians(_inProgress);
     canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd, thirdLineRadianEnd, false, paint3);
+
+    double _overdue = (overdue) * range /total;
+    double forthLineRadianEnd = getRadians(_overdue);
+    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd+thirdLineRadianEnd, forthLineRadianEnd, false, paint4);
 
     // drawArc(Rect rect, double startAngle, double sweepAngle, bool useCenter, Paint paint)
   }
