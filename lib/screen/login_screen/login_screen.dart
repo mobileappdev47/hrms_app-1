@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () => Get.toNamed(
-                      AppRes.homeScreen,
+                      AppRes.dashBoardScreen,
                     ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -185,7 +185,6 @@ class LoginScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         height: Get.height*0.1,
         color: Colors.transparent,
-
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

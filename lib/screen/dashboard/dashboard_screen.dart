@@ -14,17 +14,14 @@ class DashBoardScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorRes.backgroundColor,
       body: Container(color: ColorRes.backgroundColor,height: Get.height),
-      bottomNavigationBar: GetBuilder<DashBoardController>(
-        id: 'dashboard',
-        builder: (controller) {
-          return bottomNavigationBar(
-            context,
-            controller.onTapBot,
-            controller.pageIndex,
-            controller.onTapFlatButton,
-          );
-        },
-      ),
+      bottomNavigationBar: Obx((){
+        return bottomNavigationBar(
+          context,
+          controller.onTapBot,
+          controller.pageIndex.value,
+          controller.onTapFlatButton,
+        );
+      })
     );
   }
 }
