@@ -20,9 +20,12 @@ class LoginScreen extends StatelessWidget {
             Stack(
               children: [
                 SizedBox(
-                  height: Get.height*0.25,
+                    height: Get.height * 0.25,
                     width: Get.width,
-                    child: Image.asset(ImageRes.loginScreenTop,fit: BoxFit.fill,)),
+                    child: Image.asset(
+                      ImageRes.loginScreenTop,
+                      fit: BoxFit.fill,
+                    )),
                 Positioned(
                   top: Get.height * 0.05,
                   child: Padding(
@@ -58,7 +61,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height:Get.height*0.1,
+                      height: Get.height * 0.1,
                       child: Image.asset(ImageRes.appLogo)),
                   commonTextFormField(
                       controller: controller.userNameController,
@@ -119,7 +122,9 @@ class LoginScreen extends StatelessWidget {
                     height: 10,
                   ),
                   InkWell(
-                    onTap: ()=>Get.toNamed(AppRes.homeScreen,),
+                    onTap: () => Get.toNamed(
+                     /* AppRes.homeScreen,*/AppRes.dashBoardScreen
+                    ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 60, vertical: 15),
@@ -133,50 +138,59 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15,),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   Row(
                     children: [
                       Container(
-                        width: Get.width*0.28,
+                        width: Get.width * 0.28,
                         height: 1,
                         color: ColorRes.greyText,
                       ),
-                      const SizedBox(width: 5,),
-                      Text("Or Sign in with",style: AppTextStyle(textColor: ColorRes.greyText),),
-                      const SizedBox(width: 5,),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Or Sign in with",
+                        style: AppTextStyle(textColor: ColorRes.greyText),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
                       Container(
-                        width: Get.width*0.28,
+                        width: Get.width * 0.28,
                         height: 1,
                         color: ColorRes.greyText,
                       ),
-
-
                     ],
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       commonSocialButton(image: ImageRes.google),
                       commonSocialButton(image: ImageRes.linkedIn),
                       commonSocialButton(image: ImageRes.microsoft),
-
                     ],
                   ),
-
-
-
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image.asset(ImageRes.loginScreenBottom)
-              ],
-            )
           ],
         ),
+      ),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Image.asset(
+            ImageRes.loginScreenBottom,
+            fit: BoxFit.cover,
+            height: 110,
+          )
+        ],
       ),
     );
   }
