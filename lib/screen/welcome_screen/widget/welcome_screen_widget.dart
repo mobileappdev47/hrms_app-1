@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hrms_app/utils/color_res.dart';
 
 class SliderPage extends StatelessWidget {
@@ -12,10 +13,8 @@ class SliderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(image),
-        const SizedBox(
-          height: 30,
-        ),
+        Image.asset(image,height: Get.height*0.5,width: Get.width,),
+
         /*Text(
           content,
           maxLines: 3,

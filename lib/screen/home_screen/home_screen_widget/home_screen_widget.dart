@@ -7,14 +7,14 @@ Widget homeScreenTopContainer({String? icon,text1,text2}){
     width: Get.width*0.29,
     padding: const EdgeInsets.symmetric(vertical: 20),
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(5),
       color: Colors.white,
       boxShadow: [
         BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
+          color: Colors.grey.withOpacity(0.8),
           blurRadius: 1.0,
-          spreadRadius:1.0,
-          offset: const Offset(-1,0)
+          spreadRadius:.0,
+          offset: Offset(0.0, 1.0),
 
         )
       ]
@@ -24,7 +24,9 @@ Widget homeScreenTopContainer({String? icon,text1,text2}){
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(icon!),
+        const SizedBox(height: 5,),
         Text(text1,style: AppTextStyle(fontFamily: "inter",weight: FontWeight.w700,size: 30),),
+        const SizedBox(height: 5,),
         Text(text2,style: AppTextStyle(fontFamily: "inter",weight: FontWeight.w600,size: 14),),
       ],
     ),

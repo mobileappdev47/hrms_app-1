@@ -21,7 +21,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             Obx(
               () => SizedBox(
-                height: Get.height * 0.6,
+                height: Get.height * 0.55,
                 child: PageView(
                   controller: controller.pageController.value,
                   scrollDirection: Axis.horizontal,
@@ -71,6 +71,7 @@ class WelcomeScreen extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: Container(
+
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

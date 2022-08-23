@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                 Positioned(
                   top: Get.height * 0.05,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 5),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                           style: AppTextStyle(
                               fontFamily: "inter",
                               textColor: Colors.white,
-                              size: 32,
+                              size: 30,
                               weight: FontWeight.w700),
                         ),
                         Text(
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                           style: AppTextStyle(
                               fontFamily: "inter",
                               textColor: Colors.white,
-                              size: 12,
+                              size: 11,
                               weight: FontWeight.w700),
                         ),
                       ],
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () => Get.toNamed(
-                     /* AppRes.homeScreen,*/AppRes.dashBoardScreen
+                      AppRes.homeScreen,
                     ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -182,15 +182,20 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Image.asset(
-            ImageRes.loginScreenBottom,
-            fit: BoxFit.cover,
-            height: 110,
-          )
-        ],
+      bottomNavigationBar: Container(
+        height: Get.height*0.1,
+        color: Colors.transparent,
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Image.asset(
+              ImageRes.loginScreenBottom,
+              fit: BoxFit.cover,
+              height: 110,
+            )
+          ],
+        ),
       ),
     );
   }
