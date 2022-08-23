@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen.dart';
 import 'package:hrms_app/screen/pms_screens/pms_status/widgets/pms_status_tile.dart';
 import 'package:hrms_app/screen/pms_screens/pms_status/widgets/widgets.dart';
 import 'package:hrms_app/utils/color_res.dart';
@@ -44,11 +46,15 @@ class PmsStatusScreen extends StatelessWidget {
                 color: ColorRes.white,
                 child: ListView.builder(
                     itemCount: 5,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemBuilder: (context,index){
-                  return pmsStatusTile();
-                }))
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                          onTap: () {
+                            Get.to(() => const PmsEditScreen());
+                          },
+                          child: pmsStatusTile());
+                    }))
           ],
         ),
       ),
