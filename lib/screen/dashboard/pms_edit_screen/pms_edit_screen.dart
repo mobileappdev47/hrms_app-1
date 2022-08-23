@@ -141,7 +141,9 @@ class PmsEditScreen extends StatelessWidget {
                             Wrap(
                               children: generateChildren(
                                   text: controller.text,
-                                  selectedText: controller.selected),
+                                  selectedText: controller.selected,
+                                onTap: controller.onAddRemoveText
+                              ),
                             )
                           ],
                         ),
