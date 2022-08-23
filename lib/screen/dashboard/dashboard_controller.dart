@@ -26,6 +26,7 @@ class DashBoardController extends GetxController {
   }
 
   void onTapFlatButton() {
+
     // Get.to(() => const NewOrReadScreen());
   }
 }

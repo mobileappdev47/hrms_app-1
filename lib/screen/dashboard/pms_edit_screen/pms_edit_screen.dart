@@ -15,17 +15,17 @@ class PmsEditScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.grey.withOpacity(0.1),
+          color: Colors.white.withOpacity(0.1),
           child: Column(
             children: [
               Container(
                 height: 100,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                        ImageRes.blueBox,
-                      ),
-                    )),
+                  image: AssetImage(
+                    ImageRes.blueBox,
+                  ),
+                )),
                 child: Container(
                   padding: const EdgeInsets.only(left: 20),
                   child: Row(
@@ -59,101 +59,103 @@ class PmsEditScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Obx(
-                          () => controller.isShow.value == false
+                      () => controller.isShow.value == false
                           ? InkWell(
-                        onTap: () => controller.onChangeShow(),
-                        child: Container(
-                          margin:
-                          const EdgeInsets.symmetric(horizontal: 10),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 10),
-                          decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    blurRadius: 2.0,
-                                    spreadRadius: 2.0),
-                              ],
-                              borderRadius: BorderRadius.circular(5),
-                              color: ColorRes.lightGreenColor),
-                          child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Dimensions",
-                                style: AppTextStyle(
-                                    fontFamily: "inter",
-                                    textColor: ColorRes.blackColor),
-                              ),
-                              const Icon(
-                                Icons.keyboard_arrow_down_sharp,
-                                color: ColorRes.grey,
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                          : Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 10),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 2.0),
-                            ],
-                            borderRadius: BorderRadius.circular(5),
-                            color: ColorRes.white),
-                        child: Column(
-                          children: [
-                            InkWell(
                               onTap: () => controller.onChangeShow(),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 10),
+                                decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey.withOpacity(0.2),
+                                          blurRadius: 2.0,
+                                          spreadRadius: 2.0),
+                                    ],
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: ColorRes.lightGreenColor),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Dimensions",
+                                      style: AppTextStyle(
+                                          fontFamily: "inter",
+                                          textColor: ColorRes.blackColor),
+                                    ),
+                                    const Icon(
+                                      Icons.keyboard_arrow_down_sharp,
+                                      color: ColorRes.grey,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 10),
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        blurRadius: 2.0,
+                                        spreadRadius: 2.0),
+                                  ],
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: ColorRes.white),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Dimensions",
-                                    style: AppTextStyle(
-                                        fontFamily: "inter",
-                                        textColor: ColorRes.blackColor),
+                                  InkWell(
+                                    onTap: () => controller.onChangeShow(),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Dimensions",
+                                          style: AppTextStyle(
+                                              fontFamily: "inter",
+                                              textColor: ColorRes.blackColor),
+                                        ),
+                                        const Icon(
+                                          Icons.keyboard_arrow_down_sharp,
+                                          color: ColorRes.grey,
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Icon(
-                                    Icons.keyboard_arrow_down_sharp,
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    height: 1,
                                     color: ColorRes.grey,
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Wrap(
+                                    children: generateChildren(
+                                        text: controller.text,
+                                        selectedText: controller.selected,
+                                        onTap: controller.onAddRemoveText),
                                   )
                                 ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: 1,
-                              color: ColorRes.grey,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Wrap(
-                              children: generateChildren(
-                                  text: controller.text,
-                                  selectedText: controller.selected,
-                                onTap: controller.onAddRemoveText
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     Container(
-                      height: Get.height * 0.16,
+                      height: Get.height * 0.2,
                       width: Get.width,
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       padding: const EdgeInsets.symmetric(
@@ -161,7 +163,7 @@ class PmsEditScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withOpacity(0.2),
                                 blurRadius: 2.0,
                                 spreadRadius: 2.0),
                           ],
@@ -178,6 +180,9 @@ class PmsEditScreen extends StatelessWidget {
                                 textColor: ColorRes.green,
                                 size: 17),
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           Text(
                             "Lorem ipsum dolor sit amet, consectetuer",
                             style: AppTextStyle(
@@ -189,7 +194,7 @@ class PmsEditScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                     Container(
                       height: Get.height * 0.2,
@@ -200,7 +205,7 @@ class PmsEditScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withOpacity(0.2),
                                 blurRadius: 2.0,
                                 spreadRadius: 2.0),
                           ],
@@ -220,27 +225,39 @@ class PmsEditScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 15,
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               Container(
                 color: Colors.white,
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: ColorRes.grey),
+                          borderRadius: BorderRadius.circular(5),
+                          border:
+                              Border.all(color: ColorRes.grey.withOpacity(0.2)),
                           color: Colors.white),
                       child: Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 15),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: ColorRes.grey),
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                    color: ColorRes.grey.withOpacity(0.2)),
+                                color: ColorRes.grey.withOpacity(0.2)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -254,7 +271,7 @@ class PmsEditScreen extends StatelessWidget {
                                 Text(
                                   "Achivement",
                                   style: AppTextStyle(
-                                      textColor: ColorRes.red,
+                                      textColor: ColorRes.green,
                                       fontFamily: "inter",
                                       size: 17),
                                 ),
@@ -262,16 +279,123 @@ class PmsEditScreen extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
                             child: Row(
                               children: [
-                                Text("90%",style: AppTextStyle(textColor: ColorRes.blackColor),)
+                                Text(
+                                  "90%",
+                                  style: AppTextStyle(
+                                      textColor: ColorRes.blackColor),
+                                )
                               ],
                             ),
                           )
                         ],
                       ),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border:
+                              Border.all(color: ColorRes.grey.withOpacity(0.2)),
+                          color: Colors.white),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 15),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                    color: ColorRes.grey.withOpacity(0.2)),
+                                color: ColorRes.grey.withOpacity(0.2)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Target",
+                                  style: AppTextStyle(
+                                      textColor: ColorRes.red,
+                                      fontFamily: "inter",
+                                      size: 17),
+                                ),
+                                Text(
+                                  "Achivement",
+                                  style: AppTextStyle(
+                                      textColor: ColorRes.green,
+                                      fontFamily: "inter",
+                                      size: 17),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "90%",
+                                  style: AppTextStyle(
+                                      textColor: ColorRes.blackColor),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: Get.width * 0.44,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: ColorRes.orangeLight),
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Center(
+                        child: Text(
+                          "Save",
+                          style: AppTextStyle(
+                              fontFamily: "inter",
+                              textColor: ColorRes.orangeLight,
+                              size: 14),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: Get.width * 0.44,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: ColorRes.orangeLight,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Center(
+                        child: Text(
+                          "Submit",
+                          style: AppTextStyle(
+                              fontFamily: "inter",
+                              textColor: ColorRes.white,
+                              size: 14),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               )

@@ -32,6 +32,8 @@ class ColorRes {
   static const Color lightYellow = Color(0xffD0C911);
   static const Color lightGreen = Color(0xff0DB870);
   static const Color darkBlue = Color(0xff062F53);
+  static const Color skyBlue = Color(0xffEDFCFF);
+
 
 
 

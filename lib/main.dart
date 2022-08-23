@@ -53,8 +53,7 @@ class MyApp extends StatelessWidget {
               binding: BindingsBuilder(() => ProfileController())),
           GetPage(
               name: AppRes.dashBoardScreen,
-              page: () => const DashBoardScreen(),
-              binding: BindingsBuilder(() => DashBoardController())),
+              page: () => const DashBoardScreen(),),
           GetPage(
               name: AppRes.pmsEditScreen,
               page: () => const PmsEditScreen(),
