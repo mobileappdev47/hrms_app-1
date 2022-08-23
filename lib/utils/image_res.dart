@@ -10,6 +10,8 @@ class ImageRes {
   static String flotIcon = "${iconPath}floatBtn.png";
   static String leaveIcon = "${iconPath}leave.png";
   static String notification = "${iconPath}notification.png";
+  static String backArrowIcon = "${iconPath}back_arrow.png";
+  static String nextArrowIcon = "${iconPath}nextArrow.png";
 
 
 
@@ -42,9 +44,10 @@ class ImageRes {
   static String loginScreenBottom = "${imagePath}login_screen_bottom.png";
   static String homeScreenTop = "${imagePath}home_screen_top.png";
   static String eventImage = "${imagePath}event_image.png";
-
+  static String appBarBackImage = "${imagePath}appbar_back.png";
    static String appointmentHome = "${iconPath}appointment.png";
   static String meeting = "${iconPath}meeting.png";
+  static String profile = "${imagePath}profile.png";
 
 
 

@@ -9,6 +9,8 @@ import 'package:hrms_app/screen/home_screen/home_screen.dart';
 import 'package:hrms_app/screen/home_screen/home_screen_controller.dart';
 import 'package:hrms_app/screen/login_screen/login_screen.dart';
 import 'package:hrms_app/screen/login_screen/login_screen_controller.dart';
+import 'package:hrms_app/screen/pms_screens/pms_status/pms_status_controller.dart';
+import 'package:hrms_app/screen/pms_screens/pms_status/pms_status_screen.dart';
 import 'package:hrms_app/screen/profile_screen/profile_screen.dart';
 import 'package:hrms_app/screen/welcome_screen/welcome_screen.dart';
 import 'package:hrms_app/screen/welcome_screen/welcome_screen_controller.dart';
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        debugShowCheckedModeBanner: false,
         initialRoute: "/",
         getPages: [
           GetPage(
@@ -56,6 +59,11 @@ class MyApp extends StatelessWidget {
               name: AppRes.pmsEditScreen,
               page: () => const PmsEditScreen(),
               binding: BindingsBuilder(() => PmsEditScreenController()))
+              binding: BindingsBuilder(() => DashBoardController())),
+          GetPage(
+              name: AppRes.pmsStatusScreen,
+              page: () => const PmsStatusScreen(),
+              binding: BindingsBuilder(() => PmsStatusController()))
         ],
         home: const WelcomeScreen());
   }
