@@ -13,4 +13,6 @@ class ColorRes{
   static const Color homeScreenBlueColor = Color(0xFF4A4A4A);
   static const Color lightGrey = Color(0xFFF2F2F2);
 
+  static const Color blueIcon = Color(0xff18398E);
+  static const Color greyIcon = Color(0xff5D5C5E);
 }
