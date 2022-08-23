@@ -3,6 +3,8 @@ import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:hrms_app/screen/dashboard/dashboard_controller.dart';
 import 'package:hrms_app/screen/dashboard/dashboard_screen.dart';
+import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen.dart';
+import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen_controller.dart';
 import 'package:hrms_app/screen/home_screen/home_screen.dart';
 import 'package:hrms_app/screen/home_screen/home_screen_controller.dart';
 import 'package:hrms_app/screen/login_screen/login_screen.dart';
@@ -49,7 +51,11 @@ class MyApp extends StatelessWidget {
           GetPage(
               name: AppRes.dashBoardScreen,
               page: () => const DashBoardScreen(),
-              binding: BindingsBuilder(() => DashBoardController()))
+              binding: BindingsBuilder(() => DashBoardController())),
+          GetPage(
+              name: AppRes.pmsEditScreen,
+              page: () => const PmsEditScreen(),
+              binding: BindingsBuilder(() => PmsEditScreenController()))
         ],
         home: const WelcomeScreen());
   }

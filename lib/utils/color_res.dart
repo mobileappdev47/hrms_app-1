@@ -16,4 +16,10 @@ class ColorRes{
   static const Color blueIcon = Color(0xff18398E);
   static const Color greyIcon = Color(0xff5D5C5E);
   static const Color backgroundColor = Color(0xffF4F4F4);
+  static const Color lightGreenColor = Color(0xffEAFFF0);
+  static const Color blackColor = Color(0xff545454);
+  static const Color green = Color(0xff01A712);
+  static const Color greenDark = Color(0xff4E9722);
+  static const Color red = Color(0xff9F1818);
+
 }

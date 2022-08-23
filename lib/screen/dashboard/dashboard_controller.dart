@@ -1,7 +1,17 @@
 import 'package:get/get.dart';
+import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen.dart';
+import 'package:hrms_app/screen/profile_screen/profile_screen.dart';
 
 class DashBoardController extends GetxController {
   // int pageIndex = 0;
+
+
+  RxList pages = [
+    const PmsEditScreen(),
+    const ProfileScreen(),
+    const ProfileScreen(),
+    const ProfileScreen(),
+  ].obs;
 
   RxInt pageIndex = 0.obs;
   onTapBot(int index) {
@@ -14,7 +24,6 @@ class DashBoardController extends GetxController {
   }
 
   void onTapFlatButton() {
- print("onTap Flot");
     // Get.to(() => const NewOrReadScreen());
   }
 }

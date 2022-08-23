@@ -10,10 +10,10 @@ class DashBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DashBoardController controller = Get.put(DashBoardController());
+    final  controller =DashBoardController();
     return Scaffold(
       backgroundColor: ColorRes.backgroundColor,
-      body: Container(color: ColorRes.backgroundColor,height: Get.height),
+      body: Obx(()=>controller.pages[controller.pageIndex.value]),
       bottomNavigationBar: Obx((){
         return bottomNavigationBar(
           context,

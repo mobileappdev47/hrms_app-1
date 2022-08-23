@@ -7,23 +7,28 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: 110,
-                ),
-                Container(
-                  height: 100,
-                  width: Get.width,
-                  child: Image.asset(ImageRes.blueBox,fit: BoxFit.fill,),
+            SizedBox(
+              height: 180,
+              child: Stack(
+                children: [
+                  Image.asset(ImageRes.blueBox),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: Get.height*0.15,
+                      width: 120,
+                      decoration: const BoxDecoration(
+                          color: Colors.white, shape: BoxShape.circle),
 
-                ),
-              ],
-            )
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
