@@ -15,4 +15,5 @@ class ColorRes{
 
   static const Color blueIcon = Color(0xff18398E);
   static const Color greyIcon = Color(0xff5D5C5E);
+  static const Color backgroundColor = Color(0xffF4F4F4);
 }

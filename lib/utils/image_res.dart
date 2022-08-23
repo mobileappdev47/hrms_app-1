@@ -32,7 +32,7 @@ class ImageRes {
   static String appoinment = "${imagePath}appointment.png";
   static String break_icon = "${imagePath}break.png";
   static String daily_leave = "${imagePath}daily_leave.png";
-  static String visit = "${imagePath}visit.png";
+  // static String visit = "${imagePath}visit.png";
   static String appointment = "${imagePath}appointment.png";
   static String breakIcon = "${imagePath}break.png";
   static String dailyLeave = "${imagePath}daily_leave.png";
@@ -43,7 +43,7 @@ class ImageRes {
   static String homeScreenTop = "${imagePath}home_screen_top.png";
   static String eventImage = "${imagePath}event_image.png";
 
-  static String appointment = "${iconPath}appointment.png";
+  // static String appointment = "${iconPath}appointment.png";
   static String meeting = "${iconPath}meeting.png";
 
 
