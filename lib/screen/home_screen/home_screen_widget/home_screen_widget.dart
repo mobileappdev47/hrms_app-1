@@ -14,7 +14,7 @@ Widget homeScreenTopContainer({String? icon,text1,text2}){
           color: Colors.grey.withOpacity(0.8),
           blurRadius: 1.0,
           spreadRadius:.0,
-          offset: Offset(0.0, 1.0),
+          offset: const Offset(0.0, 1.0),
 
         )
       ]

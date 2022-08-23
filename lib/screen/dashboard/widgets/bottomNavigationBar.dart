@@ -96,7 +96,7 @@ Stack bottomNavigationBar(
                   BoxShadow(
                     color: Colors.black.withOpacity(0.3),
                     blurRadius: 4,
-                    offset: Offset(0, 4), // Shadow position
+                    offset: const Offset(0, 4), // Shadow position
                   ),
                 ],
               ),
