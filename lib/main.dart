@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:hrms_app/screen/home_screen/home_screen.dart';
+import 'package:hrms_app/screen/home_screen/home_screen_controller.dart';
 import 'package:hrms_app/screen/login_screen/login_screen.dart';
 import 'package:hrms_app/screen/login_screen/login_screen_controller.dart';
 import 'package:hrms_app/screen/welcome_screen/welcome_screen.dart';
@@ -33,6 +35,10 @@ class MyApp extends StatelessWidget {
               page: () => const LoginScreen(),
 
               binding: BindingsBuilder(() => LoginScreenController())),
+          GetPage(
+              name: AppRes.homeScreen,
+              page: () => const HomeScreen(),
+              binding: BindingsBuilder(() => HomeScreenController())),
         ],
         home: const WelcomeScreen());
   }

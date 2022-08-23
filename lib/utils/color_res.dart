@@ -9,5 +9,7 @@ class ColorRes{
   static const Color  blackText = Color(0xFF454343);
   static const Color  indicatorColor = Color(0xFF002F56);
   static const Color  buttonBlueColor = Color(0xFF2C57C2);
+  static const Color homeScreenBlackColor = Color(0xFF4A4A4A);
+  static const Color homeScreenBlueColor = Color(0xFF4A4A4A);
 
 }

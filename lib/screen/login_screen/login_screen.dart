@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hrms_app/screen/login_screen/login_screen_controller.dart';
 import 'package:hrms_app/screen/login_screen/widget/login_screen_widget.dart';
+import 'package:hrms_app/utils/app_res.dart';
 import 'package:hrms_app/utils/app_style.dart';
 import 'package:hrms_app/utils/color_res.dart';
 import 'package:hrms_app/utils/image_res.dart';
@@ -117,19 +118,22 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 60, vertical: 15),
-                    decoration: BoxDecoration(
-                        color: ColorRes.buttonBlueColor,
-                        borderRadius: BorderRadius.circular(40)),
-                    child: Text(
-                      "Login",
-                      style: AppTextStyle(
-                          fontFamily: "inter", textColor: Colors.white),
+                  InkWell(
+                    onTap: ()=>Get.toNamed(AppRes.homeScreen,),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 60, vertical: 15),
+                      decoration: BoxDecoration(
+                          color: ColorRes.buttonBlueColor,
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Text(
+                        "Login",
+                        style: AppTextStyle(
+                            fontFamily: "inter", textColor: Colors.white),
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 15,),
                   Row(
                     children: [
                       Container(
@@ -149,17 +153,28 @@ class LoginScreen extends StatelessWidget {
 
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      commonSocialButton(image: ImageRes.google),
+                      commonSocialButton(image: ImageRes.linkedIn),
+                      commonSocialButton(image: ImageRes.microsoft),
 
                     ],
-                  )
+                  ),
+
 
 
                 ],
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Image.asset(ImageRes.loginScreenBottom)
+              ],
+            )
           ],
         ),
       ),
