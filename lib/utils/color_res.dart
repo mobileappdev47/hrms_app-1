@@ -32,4 +32,5 @@ class ColorRes {
   static const Color darkBlue = Color(0xff062F53);
 
 
+
 }

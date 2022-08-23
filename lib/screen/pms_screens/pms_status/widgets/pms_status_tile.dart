@@ -3,6 +3,8 @@ import 'package:hrms_app/utils/app_style.dart';
 import 'package:hrms_app/utils/color_res.dart';
 import 'package:hrms_app/utils/font_res.dart';
 import 'package:hrms_app/utils/image_res.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'dart:math' as math;
 
 Container pmsStatusTile() {
   return Container(
@@ -79,7 +81,18 @@ Container pmsStatusTile() {
             ],
           ),
         ),
-        const Spacer(),
+         const Spacer(),
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: CircularPercentIndicator(
+            radius: 35.0,
+            backgroundColor: ColorRes.orangeColor,
+            lineWidth: 4.0,
+            percent: 0.40,
+            center: Text("40%"),
+            progressColor: Colors.green,
+        ),
+         ),
         Container(
           height: 145,
           width: 30,
@@ -93,4 +106,55 @@ Container pmsStatusTile() {
       ],
     ),
   );
+}
+
+
+class OpenPainter extends CustomPainter {
+  final learned;
+  final notLearned;
+  final range;
+  final totalQuestions;
+  double pi = math.pi;
+
+  OpenPainter({this.learned, this.totalQuestions, this.notLearned, this.range});
+  @override
+  void paint(Canvas canvas, Size size) {
+    double strokeWidth = 7;
+    Rect myRect = const Offset(-50.0, -50.0) & const Size(100.0, 100.0);
+
+    var paint1 = Paint()
+      ..color = Colors.red
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+    var paint2 = Paint()
+      ..color = Colors.green
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+    var paint3 = Paint()
+      ..color = Colors.yellow
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+
+    double firstLineRadianStart = 0;
+    double _unAnswered = (totalQuestions - notLearned - learned) * range / totalQuestions;
+    double firstLineRadianEnd = (360 * _unAnswered) * math.pi / 180;
+    canvas.drawArc(
+        myRect, firstLineRadianStart, firstLineRadianEnd, false, paint1);
+
+    double _learned = (learned) * range / totalQuestions;
+    double secondLineRadianEnd = getRadians(_learned);
+    canvas.drawArc(myRect, firstLineRadianEnd, secondLineRadianEnd, false, paint2);
+    double _notLearned = (notLearned) * range / totalQuestions;
+    double thirdLineRadianEnd = getRadians(_notLearned);
+    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd, thirdLineRadianEnd, false, paint3);
+
+    // drawArc(Rect rect, double startAngle, double sweepAngle, bool useCenter, Paint paint)
+  }
+
+  double getRadians(double value) {
+    return (360 * value) * pi / 180;
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
