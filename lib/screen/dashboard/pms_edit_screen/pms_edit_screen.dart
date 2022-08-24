@@ -30,9 +30,14 @@ class PmsEditScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20),
                   child: Row(
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
                       ),
                       Text(
                         "PMS",

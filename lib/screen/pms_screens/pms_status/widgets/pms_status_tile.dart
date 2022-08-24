@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hrms_app/utils/app_style.dart';
 import 'package:hrms_app/utils/color_res.dart';
 import 'package:hrms_app/utils/font_res.dart';
 import 'package:hrms_app/utils/image_res.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:math' as math;
 
-Container pmsStatusTile() {
+Container pmsStatusTile(
+    {String? name, int? total, int? completed, int? inProgress, int? overdue}) {
   return Container(
     height: 145,
+    width: Get.width,
     decoration: BoxDecoration(
       color: ColorRes.white,
       borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -47,13 +49,14 @@ Container pmsStatusTile() {
           ),
         ),
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 30),
+          width: Get.width * 0.39,
+          margin: const EdgeInsets.only(top: 30, bottom: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "George",
+                name!,
                 style: AppTextStyle(
                     size: 19,
                     weight: FontWeight.w600,
@@ -82,16 +85,49 @@ Container pmsStatusTile() {
           ),
         ),
         const Spacer(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircularPercentIndicator(
-            radius: 35.0,
-            backgroundColor: ColorRes.orangeColor,
-            lineWidth: 4.0,
-            percent: 0.40,
-            center: const Text("40%"),
-            progressColor: Colors.green,
-          ),
+        Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 8),
+              // decoration: BoxDecoration(border: Border.all()),
+              // padding: const EdgeInsets.only(right: 70, bottom: 70),
+              child: RotatedBox(
+                quarterTurns: -1,
+                child: Stack(
+                  children: [
+                    CustomPaint(
+                      painter: OpenPainter(
+                        total: total,
+                        completed: completed,
+                        inProgress: inProgress,
+                        overdue: overdue,
+                        range: 1,
+                      ),
+                      child: RotatedBox(
+                          quarterTurns: -3,
+                          child: Container(
+                            width: 70,
+                            padding: const EdgeInsets.all(8),
+                            // decoration: BoxDecoration(border: Border.all(color: Colors.yellow)),
+                            alignment: Alignment.center,
+                            child: Text(
+                                "${(completed! * 100 / total!).ceil().toString()}% \nCompleted  \n",
+                                style: AppTextStyle(
+                                    size: 10,
+                                    fontFamily: FontRes.inter,
+                                    weight: FontWeight.w700),
+                                textAlign: TextAlign.center),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // Align(
+            //   alignment: Alignment.center,
+            //   child: Text("5%"),
+            // )
+          ],
         ),
         Container(
           height: 145,
@@ -131,7 +167,7 @@ class OpenPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     double strokeWidth = 5;
-    Rect myRect = const Offset(-70.0, -30.0) & const Size(65.0, 65.0);
+    Rect myRect = const Offset(40.0, -00.0) & const Size(70.0, 70.0);
 
     var paint1 = Paint()
       ..color = ColorRes.orange
@@ -150,7 +186,7 @@ class OpenPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
     var paint5 = Paint()
-      ..color = ColorRes.grey
+      ..color = ColorRes.white
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
@@ -161,28 +197,70 @@ class OpenPainter extends CustomPainter {
     canvas.drawArc(
         myRect, firstLineRadianStart, firstLineRadianEnd, false, paint1);
 
-    // canvas.drawArc(
-    //     myRect, firstLineRadianEnd, (360 * 5) * math.pi / 180 - 5, false, paint1);
+    double first2End = (360 * (unAnsweredVal != 0 ? 0.02 : 0)) * math.pi / 180;
+    canvas.drawArc(myRect, firstLineRadianEnd, first2End, false, paint5);
 
     double completedVal = (completed) * range / total;
     double secondLineRadianEnd = getRadians(completedVal);
+    canvas.drawArc(myRect, (first2End + firstLineRadianEnd),
+        secondLineRadianEnd, false, paint2);
+
+    double second2End = (360 * (completedVal != 0 ? 0.02 : 0)) * math.pi / 180;
     canvas.drawArc(
-        myRect, firstLineRadianEnd, secondLineRadianEnd, false, paint2);
+        myRect,
+        (first2End + firstLineRadianEnd + secondLineRadianEnd),
+        second2End,
+        false,
+        paint5);
 
     double inProgressVal = (inProgress) * range / total;
     double thirdLineRadianEnd = getRadians(inProgressVal);
-    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd,
-        thirdLineRadianEnd, false, paint3);
+    canvas.drawArc(
+        myRect,
+        firstLineRadianEnd + secondLineRadianEnd + first2End + second2End,
+        thirdLineRadianEnd,
+        false,
+        paint3);
+
+    double third2End = (360 * (inProgressVal != 0 ? 0.02 : 0)) * math.pi / 180;
+    canvas.drawArc(
+        myRect,
+        (firstLineRadianEnd +
+            secondLineRadianEnd +
+            first2End +
+            second2End +
+            thirdLineRadianEnd),
+        third2End,
+        false,
+        paint5);
 
     double overdueVal = (overdue) * range / total;
     double forthLineRadianEnd = getRadians(overdueVal);
     canvas.drawArc(
         myRect,
-        firstLineRadianEnd + secondLineRadianEnd + thirdLineRadianEnd,
+        firstLineRadianEnd +
+            secondLineRadianEnd +
+            first2End +
+            second2End +
+            thirdLineRadianEnd +
+            third2End,
         forthLineRadianEnd,
         false,
         paint4);
 
+    double forth2nd = (360 * (overdueVal != 0 ? 0.02 : 0)) * math.pi / 180;
+    canvas.drawArc(
+        myRect,
+        firstLineRadianEnd +
+            secondLineRadianEnd +
+            first2End +
+            second2End +
+            thirdLineRadianEnd +
+            third2End +
+            forthLineRadianEnd,
+        forth2nd,
+        false,
+        paint5);
     // drawArc(Rect rect, double startAngle, double sweepAngle, bool useCenter, Paint paint)
   }
 

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hrms_app/utils/app_style.dart';
@@ -6,11 +5,11 @@ import 'package:hrms_app/utils/color_res.dart';
 import 'package:hrms_app/utils/image_res.dart';
 
 Stack bottomNavigationBar(
-    BuildContext context,
-    Function(int) onTap,
-    pageIndex,
-    VoidCallback onTapFlot,
-    ) {
+  BuildContext context,
+  Function(int) onTap,
+  pageIndex,
+  VoidCallback onTapFlot,
+) {
   return Stack(
     fit: StackFit.loose,
     children: [
@@ -36,11 +35,19 @@ Stack bottomNavigationBar(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                        onTap: ()=>onTap(0),
-                        child: tabIcon(name: "Home",index: 0,pageIndex: pageIndex, icons: ImageRes.homeIcon)),
+                        onTap: () => onTap(0),
+                        child: tabIcon(
+                            name: "Home",
+                            index: 0,
+                            pageIndex: pageIndex,
+                            icons: ImageRes.homeIcon)),
                     InkWell(
-                        onTap:()=>onTap(1),
-                        child: tabIcon(name: "Calender", index: 1,pageIndex: pageIndex,icons: ImageRes.calenderIcon)),
+                        onTap: () => onTap(1),
+                        child: tabIcon(
+                            name: "Calender",
+                            index: 1,
+                            pageIndex: pageIndex,
+                            icons: ImageRes.calenderIcon)),
                   ],
                 ),
               ),
@@ -65,11 +72,19 @@ Stack bottomNavigationBar(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
-                        onTap:()=>onTap(2),
-                        child: tabIcon(name: "Leave",index: 2, pageIndex: pageIndex,icons: ImageRes.leaveIcon)),
+                        onTap: () => onTap(2),
+                        child: tabIcon(
+                            name: "Leave",
+                            index: 2,
+                            pageIndex: pageIndex,
+                            icons: ImageRes.leaveIcon)),
                     InkWell(
-                        onTap: ()=>onTap(3),
-                        child: tabIcon(name: "Notification",index: 3,pageIndex: pageIndex, icons: ImageRes.notification)),
+                        onTap: () => onTap(3),
+                        child: tabIcon(
+                            name: "Notification",
+                            index: 3,
+                            pageIndex: pageIndex,
+                            icons: ImageRes.notification)),
                   ],
                 ),
               ),
@@ -82,7 +97,7 @@ Stack bottomNavigationBar(
         left: Get.width / 2 - 30,
         right: Get.width / 2 - 30,
         child: InkWell(
-          onTap: ()=> onTapFlot(),
+          onTap: () => onTapFlot(),
           child: Container(
               height: 57,
               width: 57,
@@ -127,9 +142,7 @@ Widget tabIcon({
             width: 20,
             child: Image.asset(
               icons,
-              color: pageIndex == index
-                  ? ColorRes.blueIcon
-                  : ColorRes.greyIcon,
+              color: pageIndex == index ? ColorRes.blueIcon : ColorRes.greyIcon,
               fit: BoxFit.fitHeight,
               height: 20,
               width: 20,
@@ -138,12 +151,14 @@ Widget tabIcon({
           const SizedBox(
             height: 5,
           ),
-          pageIndex == index ? Text(name,
-              style: AppTextStyle(
-                  fontFamily: "inter",
-                  size: 11,
-                  textColor: ColorRes.blueIcon,
-                  weight: FontWeight.w600)) : const SizedBox()
+          pageIndex == index
+              ? Text(name,
+                  style: AppTextStyle(
+                      fontFamily: "inter",
+                      size: 11,
+                      textColor: ColorRes.blueIcon,
+                      weight: FontWeight.w600))
+              : const SizedBox()
         ],
       ),
     ),

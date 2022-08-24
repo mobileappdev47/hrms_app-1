@@ -53,7 +53,7 @@ Widget appBar() {
       height: 80,
       width: Get.width,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(ImageRes.appBarBackImage)),
+        image: DecorationImage(image: AssetImage(ImageRes.blueBox),fit: BoxFit.cover),
         // border: Border.all()
       ),
       child: Row(
