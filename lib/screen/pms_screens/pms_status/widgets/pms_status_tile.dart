@@ -10,11 +10,11 @@ Container pmsStatusTile() {
   return Container(
     height: 145,
     decoration: BoxDecoration(
-        color: ColorRes.white,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        // border: Border.all(
-        //   color: ColorRes.grey.withOpacity(0.5),
-        // ),
+      color: ColorRes.white,
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
+      // border: Border.all(
+      //   color: ColorRes.grey.withOpacity(0.5),
+      // ),
       boxShadow: [
         BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -81,18 +81,18 @@ Container pmsStatusTile() {
             ],
           ),
         ),
-         const Spacer(),
-         Padding(
-           padding: const EdgeInsets.all(8.0),
-           child: CircularPercentIndicator(
+        const Spacer(),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircularPercentIndicator(
             radius: 35.0,
             backgroundColor: ColorRes.orangeColor,
             lineWidth: 4.0,
             percent: 0.40,
-            center: Text("40%"),
+            center: const Text("40%"),
             progressColor: Colors.green,
+          ),
         ),
-         ),
         Container(
           height: 145,
           width: 30,
@@ -108,18 +108,26 @@ Container pmsStatusTile() {
   );
 }
 
-
 class OpenPainter extends CustomPainter {
+  // ignore: prefer_typing_uninitialized_variables
   final overdue;
-  // final inProgress;
+
+  // ignore: prefer_typing_uninitialized_variables
   final completed;
+
+  // ignore: prefer_typing_uninitialized_variables
   final inProgress;
 
+  // ignore: prefer_typing_uninitialized_variables
   final range;
+
+  // ignore: prefer_typing_uninitialized_variables
   final total;
   double pi = math.pi;
 
-  OpenPainter({this.overdue, this.completed, this.total, this.inProgress, this.range});
+  OpenPainter(
+      {this.overdue, this.completed, this.total, this.inProgress, this.range});
+
   @override
   void paint(Canvas canvas, Size size) {
     double strokeWidth = 5;
@@ -146,27 +154,34 @@ class OpenPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-
     double firstLineRadianStart = 0;
-    double _unAnswered = (total - inProgress - completed - overdue) * range / total;
-    double firstLineRadianEnd = (360 * _unAnswered) * math.pi / 180 ;
+    double unAnsweredVal =
+        (total - inProgress - completed - overdue) * range / total;
+    double firstLineRadianEnd = (360 * unAnsweredVal) * math.pi / 180;
     canvas.drawArc(
         myRect, firstLineRadianStart, firstLineRadianEnd, false, paint1);
 
     // canvas.drawArc(
     //     myRect, firstLineRadianEnd, (360 * 5) * math.pi / 180 - 5, false, paint1);
 
-    double _completed = (completed) * range / total;
-    double secondLineRadianEnd = getRadians(_completed);
-    canvas.drawArc(myRect, firstLineRadianEnd, secondLineRadianEnd, false, paint2);
+    double completedVal = (completed) * range / total;
+    double secondLineRadianEnd = getRadians(completedVal);
+    canvas.drawArc(
+        myRect, firstLineRadianEnd, secondLineRadianEnd, false, paint2);
 
-    double _inProgress = (inProgress) * range / total;
-    double thirdLineRadianEnd = getRadians(_inProgress);
-    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd, thirdLineRadianEnd, false, paint3);
+    double inProgressVal = (inProgress) * range / total;
+    double thirdLineRadianEnd = getRadians(inProgressVal);
+    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd,
+        thirdLineRadianEnd, false, paint3);
 
-    double _overdue = (overdue) * range /total;
-    double forthLineRadianEnd = getRadians(_overdue);
-    canvas.drawArc(myRect, firstLineRadianEnd + secondLineRadianEnd+thirdLineRadianEnd, forthLineRadianEnd, false, paint4);
+    double overdueVal = (overdue) * range / total;
+    double forthLineRadianEnd = getRadians(overdueVal);
+    canvas.drawArc(
+        myRect,
+        firstLineRadianEnd + secondLineRadianEnd + thirdLineRadianEnd,
+        forthLineRadianEnd,
+        false,
+        paint4);
 
     // drawArc(Rect rect, double startAngle, double sweepAngle, bool useCenter, Paint paint)
   }

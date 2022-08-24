@@ -31,9 +31,6 @@ class ImageRes {
   // static String leave = "${imagePath}Leave.png";
   static String approval = "${imagePath}approval.png";
   static String visit = "${iconPath}visit.png";
-  static String appoinment = "${imagePath}appointment.png";
-  static String break_icon = "${imagePath}break.png";
-  static String daily_leave = "${imagePath}daily_leave.png";
   // static String visit = "${imagePath}visit.png";
   static String appointment = "${imagePath}appointment.png";
   static String breakIcon = "${imagePath}break.png";

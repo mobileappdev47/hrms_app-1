@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen.dart';
 import 'package:hrms_app/screen/home_screen/home_screen.dart';
 import 'package:hrms_app/screen/pms_screens/pms_status/pms_status_screen.dart';
 import 'package:hrms_app/screen/profile_screen/profile_screen.dart';

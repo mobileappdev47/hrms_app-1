@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
-import 'package:hrms_app/screen/dashboard/dashboard_controller.dart';
 import 'package:hrms_app/screen/dashboard/dashboard_screen.dart';
 import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen.dart';
 import 'package:hrms_app/screen/dashboard/pms_edit_screen/pms_edit_screen_controller.dart';

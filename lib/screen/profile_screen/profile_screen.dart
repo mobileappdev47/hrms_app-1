@@ -61,7 +61,7 @@ class ProfileScreen extends StatelessWidget {
                  profileBox(image: ImageRes.visit,text: "Visit"),
                  profileBox(image: ImageRes.appointment,text: "Appointment"),
                  profileBox(image: ImageRes.breakIcon,text: "Break"),
-                 profileBox(image: ImageRes.daily_leave,text: "Daily Leave"),
+                 profileBox(image: ImageRes.dailyLeave,text: "Daily Leave"),
                ],
              ),
            )
