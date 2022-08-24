@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hrms_app/screen/home_screen/home_screen_widget/home_screen_widget.dart';
 import 'package:hrms_app/utils/app_style.dart';
 import 'package:hrms_app/utils/color_res.dart';
+import 'package:hrms_app/utils/common_widget.dart';
 import 'package:hrms_app/utils/image_res.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,8 +11,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
+      drawer: const SideBarMenu(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -100,6 +104,21 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Container(
+                    padding:
+                        const EdgeInsets.only(top: 20, right: 10, left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              scaffoldKey.currentState!.openDrawer();
+                            },
+                            child: Image.asset(ImageRes.menuIconHome)),
+                        Image.asset(ImageRes.notificationIconHome),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -156,46 +175,51 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     height: Get.height * 0.3,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color:ColorRes.lightGrey
+                        borderRadius: BorderRadius.circular(5),
+                        color: ColorRes.lightGrey),
+                    child: Center(
+                      child: Image.asset(ImageRes.eventImage),
                     ),
-                    child: Center(child: Image.asset(ImageRes.eventImage),),
-
                   ),
                   Container(
                     width: Get.width,
                     height: 50,
-                    padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 10),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.white
-                    ),
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white),
                     child: Align(
-                      alignment: Alignment.centerLeft,
-                        child: Text("Public Holidays & Events",style: AppTextStyle(fontFamily: "inter",size: 13,),textAlign: TextAlign.left,)),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Public Holidays & Events",
+                          style: AppTextStyle(
+                            fontFamily: "inter",
+                            size: 13,
+                          ),
+                          textAlign: TextAlign.left,
+                        )),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   Container(
                     width: Get.width,
-                  //  margin: const EdgeInsets.only(right: 0, left: 20),
+                    //  margin: const EdgeInsets.only(right: 0, left: 20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow:  [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 1.0,
-                          spreadRadius: 1.0,
-                          offset: const Offset(0,0)
-                        )
-                      ]
-                    ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 1.0,
+                              spreadRadius: 1.0,
+                              offset: const Offset(0, 0))
+                        ]),
                     child: Row(
                       children: [
                         Container(
-                          height: Get.height*0.15,
+                          height: Get.height * 0.15,
                           width: 90,
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
@@ -266,7 +290,6 @@ class HomeScreen extends StatelessWidget {
                       weight: FontWeight.w600,
                     ),
                   ),
-
                 ],
               ),
             )
