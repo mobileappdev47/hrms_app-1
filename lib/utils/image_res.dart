@@ -12,6 +12,16 @@ class ImageRes {
   static String notification = "${iconPath}notification.png";
   static String backArrowIcon = "${iconPath}back_arrow.png";
   static String nextArrowIcon = "${iconPath}nextArrow.png";
+  static String menuIconHome = "${iconPath}menuIcon.png";
+  static String notificationIconHome = "${iconPath}notificationIcon.png";
+  static String meeting = "${iconPath}meeting.png";
+  static String visit = "${iconPath}visit.png";
+  static String appointmentHome = "${iconPath}appointment.png";
+  static String empProfile = "${iconPath}empProfile.png";
+  static String notificationProfile = "${iconPath}notificationProfile.png";
+  static String termsProfile = "${iconPath}termsProfile.png";
+  static String privacyIcon = "${iconPath}privacyIcon.png";
+  static String appLockIcon = "${iconPath}appLock.png";
 
 
 
@@ -23,14 +33,14 @@ class ImageRes {
   static String appLogo = "${imagePath}app_logo.png";
 
   static String blueBox = "${imagePath}blue_box.png";
-  static String menuIcon = "${imagePath}menu_icon.png";
+  static String menuIcon = "${imagePath}menuIcon.png";
   static String payroll = "${imagePath}payroll.png";
   static String attendance = "${imagePath}attendence.png";
   static String notice = "${imagePath}notice.png";
   static String expenses = "${imagePath}expenses.png";
   // static String leave = "${imagePath}Leave.png";
   static String approval = "${imagePath}approval.png";
-  static String visit = "${iconPath}visit.png";
+
   static String appoinment = "${imagePath}appointment.png";
   static String break_icon = "${imagePath}break.png";
   static String daily_leave = "${imagePath}daily_leave.png";
@@ -45,9 +55,8 @@ class ImageRes {
   static String homeScreenTop = "${imagePath}home_screen_top.png";
   static String eventImage = "${imagePath}event_image.png";
   static String appBarBackImage = "${imagePath}appbar_back.png";
-   static String appointmentHome = "${iconPath}appointment.png";
-  static String meeting = "${iconPath}meeting.png";
   static String profile = "${imagePath}profile.png";
+  static String sideTop = "${imagePath}sideTop.png";
 
 
 
