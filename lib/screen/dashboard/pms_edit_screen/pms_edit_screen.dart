@@ -206,7 +206,7 @@ class PmsEditScreen extends StatelessWidget {
                       width: Get.width,
                       margin: const EdgeInsets.symmetric(horizontal: 10),
                       padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 20),
+                          vertical: 10, horizontal: 20),
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -220,13 +220,32 @@ class PmsEditScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Self Review",
-                            style: AppTextStyle(
+                          TextField(
+                            controller: controller.selfReviewController,
+                            style: AppTextStyle(size: 17,
                                 fontFamily: "inter",
-                                textColor: const Color(0xFFCDCAC8),
-                                size: 17),
-                          ),
+                                textColor: const Color(0xFF484848),
+                                weight: FontWeight.w500),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Self Review",
+                                hintStyle: AppTextStyle(
+                                    size: 17,
+                                    fontFamily: "inter",
+                                    textColor: const Color(0xFFCDCAC8),
+                                    weight: FontWeight.w500),
+
+                                contentPadding:
+                                    const EdgeInsets.all(0)),
+                            maxLines: 5,
+                          )
+                          // Text(
+                          //   "Self Review",
+                          //   style: AppTextStyle(
+                          //       fontFamily: "inter",
+                          //       textColor: const Color(0xFFCDCAC8),
+                          //       size: 17),
+                          // ),
                         ],
                       ),
                     ),
